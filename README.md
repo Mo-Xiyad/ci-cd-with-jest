@@ -23,3 +23,27 @@ Remember to keep three separate apps:
 Review automatically deployed from develop branch.
 Staging automatically deployed from master branch.
 Production deployed when promoted from staging.
+
+## To convert the project to Typescript
+
+- Install TS as a dev dependency
+  npm install typescript -D
+
+- Initialize your tsconfig
+
+tsc --init
+
+- Define your rootDir (generally "./src") and outDir (generally "./dist" or "./build")
+
+- Installing the testing framework
+
+npm install jest ts-jest @types/jest supertest
+
+- Configuring for TS
+
+npx ts-jest config:init
+
+> ---
+
+- On vsCode press "CMD p" and >restart ts server
+- npm i @types/express
