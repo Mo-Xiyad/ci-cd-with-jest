@@ -98,16 +98,16 @@ describe("Testing the app endpoints", () => {
     expect(response.status).toBe(404);
   });
 
-  // afterAll((done) => {
-  //   mongoose.connection
-  //     .dropDatabase()
-  //     .then(() => {
-  //       return mongoose.connection.close();
-  //     })
-  //     .then(() => {
-  //       done();
-  //     });
-  // });
+  afterAll((done) => {
+    mongoose.connection
+      .dropDatabase()
+      .then(() => {
+        return mongoose.connection.close();
+      })
+      .then(() => {
+        done();
+      });
+  });
 
   // it("should test that the GET /products endpoint returns a list of products", async () => {})
 });
