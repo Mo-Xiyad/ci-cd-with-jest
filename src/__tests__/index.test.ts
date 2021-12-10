@@ -29,7 +29,7 @@ describe("Testing the app endpoints", () => {
     price: 200,
   };
 
-  let _id: null | string = null;
+  let _id: string;
 
   it("should check that the POST /products endpoint creates a new product", async () => {
     const response = await request.post("/products").send(validProduct);
@@ -67,7 +67,6 @@ describe("Testing the app endpoints", () => {
   const validUpdate = {
     name: "Test Product Updated",
   };
-
   it("should check that a valid PUT /products/:id update request gets executed correctly", async () => {
     const response = await request.put(`/products/${_id}`).send(validUpdate);
 
