@@ -44,9 +44,10 @@ describe("Testing the app endpoints", () => {
 
   it("should check that the GET /products endpoint returns a list of products", async () => {
     const response = await request.get("/products");
+    console.log(response.body.products);
 
     expect(response.status).toBe(200);
-    expect(response.body.length).toBeGreaterThan(0);
+    expect(response.body.products.length).toBeGreaterThan(0);
   });
 
   it("should check that the GET /products/:id returns a valid product with a valid id", async () => {
@@ -97,16 +98,16 @@ describe("Testing the app endpoints", () => {
     expect(response.status).toBe(404);
   });
 
-  afterAll((done) => {
-    mongoose.connection
-      .dropDatabase()
-      .then(() => {
-        return mongoose.connection.close();
-      })
-      .then(() => {
-        done();
-      });
-  });
+  // afterAll((done) => {
+  //   mongoose.connection
+  //     .dropDatabase()
+  //     .then(() => {
+  //       return mongoose.connection.close();
+  //     })
+  //     .then(() => {
+  //       done();
+  //     });
+  // });
 
   // it("should test that the GET /products endpoint returns a list of products", async () => {})
 });

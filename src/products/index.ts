@@ -1,4 +1,5 @@
 import express from "express";
+import { GetProductsResponse } from "../types/IProduct";
 import { ProductModel } from "./model";
 
 const productsRouter = express.Router();
@@ -6,7 +7,10 @@ const productsRouter = express.Router();
 productsRouter
   .get("/", async (req, res) => {
     const products = await ProductModel.find({});
-    res.send(products);
+
+    // if not checked properly in jest test this will throw an error
+    const response: GetProductsResponse = { products }; // use interface here to insure type safety of request/response
+    res.send(response);
   })
   .post("/", async (req, res) => {
     const product = new ProductModel(req.body);

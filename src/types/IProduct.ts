@@ -1,5 +1,12 @@
 export interface IProduct {
   name: string;
   price: number;
-  timestamps: string;
+}
+
+export interface GetProductsResponse {
+  products: IProduct[];
+}
+
+export interface GetSingleProductResponse {
+  products: IProduct;
 }
